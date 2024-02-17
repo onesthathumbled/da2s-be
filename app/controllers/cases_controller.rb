@@ -3,7 +3,7 @@ class CasesController < ApplicationController
     before_action :set_case, only: [:show, :update, :destroy]
   
     def index
-      @cases = Case.order(:id).limit(100)
+      @cases = Case.order(id: :desc).limit(300)
       render json: @cases
     end
   
