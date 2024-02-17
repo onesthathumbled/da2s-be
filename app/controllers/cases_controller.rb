@@ -3,7 +3,7 @@ class CasesController < ApplicationController
     before_action :set_case, only: [:show, :update, :destroy]
   
     def index
-      @cases = Case.order(:case_id).limit(100)
+      @cases = Case.order(:id).limit(100)
       render json: @cases
     end
   
@@ -41,7 +41,7 @@ class CasesController < ApplicationController
   
     def case_params
       params.permit(
-        :case_id,
+        :id,
         :age,
         :age_group,
         :sex,
