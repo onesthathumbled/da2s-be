@@ -1,4 +1,5 @@
 class DataController < ApplicationController
+    protect_from_forgery with: :null_session
     before_action :set_datum, only: [:show, :edit, :update, :destroy]
   
     def index
@@ -49,7 +50,7 @@ class DataController < ApplicationController
     end
   
     def datum_params
-      params.require(:datum).permit(:attribute1, :attribute2, :attribute3) # Replace with your actual attributes
+      params.permit(:attribute1, :attribute2, :attribute3) # Replace with your actual attributes
     end
   end
   
